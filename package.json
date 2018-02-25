@@ -1,0 +1,37 @@
+{
+  "name": "react-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "babel": "babel --presets es2015 js/main.js -o build/main.bundle.js",
+    "start": "webpack --config webpack.config.js",
+    "webpack": "webpack",
+    "watch:js": "onchange 'js/**/*.js' -- npm run webpack",
+    "watch:scss":  "node-sass --watch sass -o build/css",
+    "watch": "npm run watch:scss | npm run watch:js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.0.0-beta.40",
+    "@babel/preset-env": "^7.0.0-beta.40",
+    "@babel/preset-react": "^7.0.0-beta.40",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^8.0.0-beta.0",
+    "css-loader": "^0.28.10",
+    "node-sass": "^4.7.2",
+    "onchange": "^3.3.0",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.20.2",
+    "webpack": "^4.0.0",
+    "webpack-cli": "^2.0.8"
+  },
+  "dependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.7"
+  }
+}
