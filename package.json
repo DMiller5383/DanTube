@@ -9,7 +9,7 @@
     "start": "webpack --config webpack.config.js",
     "webpack": "webpack",
     "watch:js": "onchange 'js/**/*.js' -- npm run webpack",
-    "watch:scss":  "node-sass --watch sass -o build/css",
+    "watch:scss": "node-sass --watch sass -o build/css --output-style compressed",
     "watch": "npm run watch:scss | npm run watch:js"
   },
   "author": "",
@@ -26,6 +26,7 @@
     "onchange": "^3.3.0",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.20.2",
+    "uglifyjs-webpack-plugin": "^1.2.2",
     "webpack": "^4.0.0",
     "webpack-cli": "^2.0.8"
   },
