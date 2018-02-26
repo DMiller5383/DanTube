@@ -13,4 +13,5 @@ Three commands can be used to start the watcher:
 3.  ```npm run watch:scss```
 ⋅⋅⋅Watches SASS
 
-
+*Also please read the corresponding blog post for this repository*
+[http://danielmiller.blog/npm-react-sass-starter/](http://danielmiller.blog/npm-react-sass-starter/)
