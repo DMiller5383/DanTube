@@ -3,10 +3,16 @@ var webpack = require('webpack');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
  module.exports = {
-     entry: ['./js/main.js'],
+     entry: ['./js/index.js'],
+     node: {
+        fs: "empty",
+        net: "empty",
+        tls: "empty"
+     },
      resolve: {
         extensions: ['.js', '.jsx']
     },
+
      output: {
          path: path.resolve(__dirname, 'build/js'),
          filename: 'main.bundle.js'
