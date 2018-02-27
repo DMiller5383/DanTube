@@ -1,25 +1,25 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import VideoSearchBox from './components/video_search_box';
-import YouTube from 'youtube-node';
 import Video from './components/video';
-import VideoList from './components/video_list'; 
+import VideoList from './containers/video_list'; 
 import VideoCategoryList from './components/video_category_list';
-
-//let youTube = new YouTube(); 
-//youTube.setKey('AIzaSyBhiCYZwT2PW7kZ_LUDGv4cyFm4K7zegDI'); 
-let videos = ['T5ahmzySUB8', 'qdOzsNnAsFk', 'FHCy6wOJh48'];
-let searchOnKeyUpFunc = function() {
-    console.log('Key has been pressed');
-}
+import {createStore, applyMiddleware} from 'redux';
+import promise from 'redux-promise';
+import { Provider } from 'react-redux';
+import reducers from './reducers';
 
 let categories = ['funny', 'movies', 'news'];
+const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
+let videos = [];
 
 ReactDOM.render(
+    <Provider store={createStoreWithMiddleware(reducers)}>
     <div>
-        <VideoSearchBox onKeyUpFunc={searchOnKeyUpFunc}/>
+        <VideoSearchBox />
         <VideoCategoryList categories={categories} />
         <VideoList videos={videos} />
-    </div>,
+    </div>
+    </Provider>,
     document.getElementById('app')
 );
