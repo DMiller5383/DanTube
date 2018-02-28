@@ -11,11 +11,12 @@ import reducers from './reducers';
 import {logger, ytMiddleware} from './middleware';
 
 let categories = ['funny', 'movies', 'news'];
-const createStoreWithMiddleware = applyMiddleware(promise, ytMiddleware, logger)(createStore);
+const createStoreWithMiddleware = applyMiddleware(promise, ytMiddleware)(createStore);
 let videos = [];
+const initialState = { videos: {videoList: [], isFetching: true} }
 
 ReactDOM.render(
-    <Provider store={createStoreWithMiddleware(reducers)}>
+    <Provider store={createStoreWithMiddleware(reducers, initialState)}>
     <div>
         <VideoSearchBox />
         <VideoCategoryList categories={categories} />

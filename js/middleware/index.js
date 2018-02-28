@@ -8,7 +8,7 @@ const ytMiddleware = store => next => action => {
         action.payload = [];
         let youTube = new YouTube(); 
         youTube.setKey('AIzaSyBhiCYZwT2PW7kZ_LUDGv4cyFm4K7zegDI'); 
-        youTube.search('funny', 2, function(error, result){
+        youTube.search(action.payload, 10, {pageToken: ''}, function(error, result){
             if(error) {
                 return 'error';
             } else {

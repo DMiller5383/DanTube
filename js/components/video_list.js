@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Video from './video';
-
+import _ from 'lodash';
 
 export default class VideoList extends Component {
 
@@ -9,10 +9,19 @@ export default class VideoList extends Component {
     }
 
     render() {
-        console.log(this.props);
-        let videoItems = this.props.videos.map((videoId, index)=>{
+        // if (_.isEmpty(this.props.videos)) {
+        //     return(
+        //         <div>Loading...</div>
+        //     )
+        // }
+        if (this.props.videoLoadState == 'Loading') {
+            return(
+                <h1>{this.props.videoLoadState}</h1>
+            )
+        }
+        let videoItems = this.props.videos.videoList.map((videoId, index)=>{
             return (
-                <div class="row">
+                <div className="row" key={index}>
                     <Video videoId={videoId} />
                 </div>
             )
