@@ -6,11 +6,10 @@ export default class VideoList extends Component {
 
     componentWillMount(){
         let videos = this.props.fetchVideos();
-        console.log(videos);
-
     }
 
     render() {
+        console.log(this.props);
         let videoItems = this.props.videos.map((videoId, index)=>{
             return (
                 <div class="row">

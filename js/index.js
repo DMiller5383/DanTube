@@ -8,9 +8,10 @@ import {createStore, applyMiddleware} from 'redux';
 import promise from 'redux-promise';
 import { Provider } from 'react-redux';
 import reducers from './reducers';
+import {logger, ytMiddleware} from './middleware';
 
 let categories = ['funny', 'movies', 'news'];
-const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
+const createStoreWithMiddleware = applyMiddleware(promise, ytMiddleware, logger)(createStore);
 let videos = [];
 
 ReactDOM.render(
