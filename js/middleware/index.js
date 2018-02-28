@@ -5,7 +5,6 @@ import {receiveVideos} from '../actions';
 
 const ytMiddleware = store => next => action => {
     if (action.type == FETCH_VIDEOS) {
-        action.payload = [];
         let youTube = new YouTube(); 
         youTube.setKey('AIzaSyBhiCYZwT2PW7kZ_LUDGv4cyFm4K7zegDI'); 
         youTube.search(action.payload, 10, {pageToken: ''}, function(error, result){

@@ -1,11 +1,19 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-export default (props) => {
-    let categoryListItems = props.categories.map((category, index)=>{
-        return(<li key={index}>{category}</li>)
-    });
+export default class VideoCategoryList extends Component{
+    onClick(e) {
+        let searchText = e.target.innerText;
+        this.props.updateCurrentSearch(searchText);
+        this.props.fetchVideos(searchText);
+    }
 
-    return(
-        <ul>{categoryListItems}</ul>
-    )
+    render() {
+        let categoryListItems = this.props.categories.map((category, index)=>{
+            return(<li key={index} onClick={this.onClick.bind(this)}>{category}</li>)
+        });
+    
+        return(
+            <ul>{categoryListItems}</ul>
+        )
+    }
 }

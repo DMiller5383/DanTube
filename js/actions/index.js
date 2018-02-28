@@ -2,11 +2,12 @@ import YouTube from 'youtube-node';
 
 export const FETCH_VIDEOS = 'fetch_videos';
 export const RECEIVE_VIDEOS = 'receive_videos';
+export const UPDATE_CURRENT_SEARCH = 'update_current_search';
 
-export function fetchVideos(category='') {
+export function fetchVideos(searchTerm='') {
     return {
         type: FETCH_VIDEOS,
-        payload: category
+        payload: searchTerm
     }
 }
 
@@ -19,4 +20,11 @@ export function receiveVideos(videos) {
 
     return action;
 
+}
+
+export function updateCurrentSearch(searchTerm) {
+    return {
+        type: UPDATE_CURRENT_SEARCH,
+        payload: searchTerm
+    }
 }

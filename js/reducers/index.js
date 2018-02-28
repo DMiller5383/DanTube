@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import VideosReducer from './reducer_videos';
-import VideoLoadStateReducer from './reducer_video_load_state';
+import CurrentSearchReducer from './reducer_current_search';
 
 const rootReducer = combineReducers({
     videos: VideosReducer,
-    videoLoadState: VideoLoadStateReducer
+    currentSearch: CurrentSearchReducer
 });
 
 export default rootReducer;

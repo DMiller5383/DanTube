@@ -5,18 +5,13 @@ import _ from 'lodash';
 export default class VideoList extends Component {
 
     componentWillMount(){
-        let videos = this.props.fetchVideos();
+        this.props.fetchVideos(this.props.currentSearch);
     }
 
     render() {
-        // if (_.isEmpty(this.props.videos)) {
-        //     return(
-        //         <div>Loading...</div>
-        //     )
-        // }
-        if (this.props.videos.isLoading == true) {
+        if (this.props.videos.isFetching == true) {
             return(
-                <h1>{this.props.videoLoadState}</h1>
+                <h1>Loading...</h1>
             )
         }
         let videoItems = this.props.videos.videoList.map((videoId, index)=>{
