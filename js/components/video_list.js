@@ -14,7 +14,7 @@ export default class VideoList extends Component {
         //         <div>Loading...</div>
         //     )
         // }
-        if (this.props.videoLoadState == 'Loading') {
+        if (this.props.videos.isLoading == true) {
             return(
                 <h1>{this.props.videoLoadState}</h1>
             )
