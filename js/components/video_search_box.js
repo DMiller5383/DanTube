@@ -16,9 +16,11 @@ export default class VideoSearchBox extends Component {
 
     render() {
         return(
-            <div>
-                <input type="text" onKeyUp={this.setSearchText.bind(this)}/>
-                <button onClick={this.onClick.bind(this)}>Search</button>
+            <div class="col-12">
+                <div className="searchbox">
+                    <input type="text" className="searchbox__textbox" onKeyUp={this.setSearchText.bind(this)}/>
+                    <button className="searchbox__btn" onClick={this.onClick.bind(this)}>Search</button>
+                </div>
             </div>
                 
         )

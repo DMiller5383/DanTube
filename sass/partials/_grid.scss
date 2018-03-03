@@ -1,0 +1,51 @@
+$mobile-portrait-col: (
+    columns: 12,
+    gutter: 20px,
+    media: 375px
+);
+$mobile-landscape-col: (
+    columns: 12,
+    gutter: 20px,
+    media: 568px,
+);;
+
+$tablet-portrait-col: (
+    columns: 12,
+    gutter: 0,
+    media: 768px
+);
+
+$tablet-landscape-col: (
+    columns: 12,
+    gutter: 0,
+    media: 1024px
+);
+
+
+.container {
+    @include grid-container;
+    .col-3 {
+        margin-bottom: 20px;
+        @include grid-media($mobile-portrait-col) {
+            @include grid-column(12);
+        }
+
+        @include grid-media($mobile-landscape-col) {
+            @include grid-column(6);
+        }
+
+        @include grid-media($tablet-landscape-col) {
+            @include grid-column(4);
+        }
+    }
+
+    .col-hero {
+        @include grid-column(6);
+    }
+
+    .col-12 {
+        @include grid-column(12);
+    }
+    
+}
+

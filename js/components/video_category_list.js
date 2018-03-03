@@ -9,11 +9,11 @@ export default class VideoCategoryList extends Component{
 
     render() {
         let categoryListItems = this.props.categories.map((category, index)=>{
-            return(<li key={index} onClick={this.onClick.bind(this)}>{category}</li>)
+            return(<li className="video-categories-list__item" key={index} onClick={this.onClick.bind(this)}>{category}</li>)
         });
     
         return(
-            <ul>{categoryListItems}</ul>
+            <ul className="video-categories-list">{categoryListItems}</ul>
         )
     }
 }

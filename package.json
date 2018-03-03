@@ -9,7 +9,7 @@
     "start": "webpack --config webpack.config.js",
     "webpack": "webpack",
     "watch:js": "onchange 'js/**/*.js' -- npm run webpack",
-    "watch:scss": "node-sass --watch sass -o build/css --output-style compressed",
+    "watch:scss": "node-sass --include-path node_modules/bourbon/core/ --include-path node_modules/breakpoint-sass/stylesheets --include-path node_modules/bourbon-neat/core/ --watch sass -o build/css --output-style compressed --recursive",
     "watch": "npm run watch:scss | npm run watch:js"
   },
   "author": "",
@@ -19,6 +19,7 @@
     "@babel/preset-env": "^7.0.0-beta.40",
     "@babel/preset-react": "^7.0.0-beta.40",
     "babel-loader": "^8.0.0-beta.1",
+    "bourbon-neat": "^2.1.0",
     "lodash": "^4.17.5",
     "node-sass": "^4.7.2",
     "onchange": "^3.3.0",
@@ -29,6 +30,8 @@
     "webpack-cli": "^2.0.8"
   },
   "dependencies": {
+    "bourbon": "^5.0.0",
+    "breakpoint-sass": "^2.7.1",
     "fs": "0.0.1-security",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",

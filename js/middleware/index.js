@@ -12,11 +12,15 @@ const ytMiddleware = store => next => action => {
                 return 'error';
             } else {
                 let videos = result.items;
-                let videoIds = [];
+                let videoList = [];
                 for(let i=0; i<videos.length; i++) {
-                    videoIds.push(videos[i].id.videoId);
+                    let video = {};
+                    
+                    video.thumbnail = videos[i].snippet.thumbnails.medium.url;
+                    video.title = videos[i].snippet.title;
+                    videoList.push(video);
                 }
-                store.dispatch(receiveVideos(videoIds));
+                store.dispatch(receiveVideos(videoList));
              
             }
         }) 

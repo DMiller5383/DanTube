@@ -1,0 +1,17 @@
+.video {
+    width: 100%;
+    position: relative;
+    height: 180px;
+    .video__thumbnail {
+        @include position(absolute, 0);
+        width: 95%;
+    }
+    .video__title {
+        position: absolute;
+        @include position(absolute, (inherit, inherit, 16px, 10px));
+        z-index: 2;
+        background: $beige;
+        width: 86%;
+        
+    }
+}
