@@ -4,9 +4,9 @@ export default(props) => {
 
     let showSearchText = '';
     if(props.searchIsShowing) {
-        showSearchText = (<i class="fas fa-search"></i>);
+        showSearchText = (<i className="fas fa-times"></i>);
     } else {
-        showSearchText = (<i class="fas fa-search"></i>);
+        showSearchText = (<i className="fas fa-search"></i>);
     }
     
     return(<span className={props.className} onClick={props.onClick}>{showSearchText}</span>);

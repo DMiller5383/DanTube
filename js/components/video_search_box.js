@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ShowSearch from './show_search';
+import {CSSTransitionGroup} from 'react-transition-group';
 
 export default class VideoSearchBox extends Component {
     onClick() {
@@ -35,7 +36,9 @@ export default class VideoSearchBox extends Component {
             <div className="col-12">
                 <div className="searchbox">
                     <div className="col-7">
-                        <input type="text" className={textBoxClass} onKeyUp={this.setSearchText.bind(this)}/>
+                    <CSSTransitionGroup transitionName="example">
+                        <input key="1" type="text" className={textBoxClass} onKeyUp={this.setSearchText.bind(this)}/>
+                    </CSSTransitionGroup>
                     </div>
                     <div className="col-5">
                         <ShowSearch className="seachbox__mobile-show" onClick={this.showOrHideSearchBox.bind(this)} searchIsShowing={this.props.searchbox.isShowing}/>
