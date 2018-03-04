@@ -32,8 +32,10 @@
   "dependencies": {
     "bourbon": "^5.0.0",
     "breakpoint-sass": "^2.7.1",
+    "font-awesome-sass": "^4.7.0",
     "fs": "0.0.1-security",
     "react": "^16.2.0",
+    "react-device-detect": "^0.1.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.7",
     "youtube-node": "^1.3.2"

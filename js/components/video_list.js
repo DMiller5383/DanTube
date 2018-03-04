@@ -12,7 +12,6 @@ export default class VideoList extends Component {
         let rows = [];
         let videoRow = [];
         _.each(videos, function(video, key){
-            console.log(video);
             let videoItem = <div className="col-3"><Video video={video} /></div>;
             if (key % rowSize == 0) {
                 videoRow.push(videoItem);

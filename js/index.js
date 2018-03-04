@@ -10,21 +10,22 @@ import promise from 'redux-promise';
 import { Provider } from 'react-redux';
 import reducers from './reducers';
 import {logger, ytMiddleware} from './middleware';
+import {isMobile} from 'react-device-detect';
 
 let categories = ['funny', 'movies', 'news'];
 const createStoreWithMiddleware = applyMiddleware(promise, ytMiddleware)(createStore);
 let videos = [];
-const initialState = { videos: {videoList: [], isFetching: true}, currentSearch: '' };
+const initialState = { videos: {videoList: [], isFetching: true}, currentSearch: '', searchbox: {isShowing: false} };
 
 ReactDOM.render(
     <Provider store={createStoreWithMiddleware(reducers, initialState)}>
     <div>
-        <div class="row">
-            <div class="col-hero">
+        <div className="row">
+            <div className="col-5">
                 <AppTitle appTitle="DanTube" />
             </div>
-            <div class="col-hero">
-                <VideoSearchBox />
+            <div className="col-7">
+                <VideoSearchBox isMobile={isMobile}/>
             </div>
         </div>
         <VideoCategoryList categories={categories} />

@@ -1,0 +1,7 @@
+.hide {
+    @include hide-visually("hide");
+}
+
+.show {
+    @include hide-visually("unhide");
+}
