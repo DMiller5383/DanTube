@@ -1,0 +1,29 @@
+.searchbox {
+   margin-top: 12px;
+    .searchbox__textbox {
+        background: $beige;
+        width: 100%;
+        border: 0;
+        height: 24px;
+    }
+
+    .searchbox__textbox:focus {
+        outline: -webkit-focus-ring-color auto 0px;
+    }
+}
+
+.searchbox--slidein {
+    .searchbox__textbox {
+        animation-name: slidein;
+        animation-duration: 1s;
+        width: 100%;
+    }
+}
+
+.searchbox--slideout {
+    .searchbox__textbox {
+        animation-name: slideout;
+        animation-duration: 1s;
+        width: 0%;
+    }
+}

@@ -21,29 +21,25 @@ export default class VideoSearchBox extends Component {
             this.props.showOrHideSearchBox(false);
         } else {
             this.props.showOrHideSearchBox(true);
+            this.searchbox.focus();
         }
     }
 
     renderMobile() {
-        let textBoxClass = 'searchbox__textbox hide';
-
+        let textBoxClass = 'searchbox searchbox--slideout';
         if(this.props.searchbox.isShowing) {
-            textBoxClass = 'searchbox__textbox show';
+            textBoxClass = 'searchbox searchbox--slidein';
         } else {
-            textBoxClass = 'searchbox__textbox hide';
+            textBoxClass = 'searchbox searchbox--slideout';
         }
         return(
-            <div className="col-12">
-                <div className="searchbox">
-                    <div className="col-7">
-                    <CSSTransitionGroup transitionName="example">
-                        <input key="1" type="text" className={textBoxClass} onKeyUp={this.setSearchText.bind(this)}/>
-                    </CSSTransitionGroup>
+                <div className={textBoxClass}>
+                    <div className="col-10">
+                        <input key="1" type="text" className='searchbox__textbox' ref={(searchbox)=>{this.searchbox = searchbox}}  onKeyUp={this.setSearchText.bind(this)}/>
                     </div>
-                    <div className="col-5">
+                    <div className="col-2">
                         <ShowSearch className="seachbox__mobile-show" onClick={this.showOrHideSearchBox.bind(this)} searchIsShowing={this.props.searchbox.isShowing}/>
                     </div>
-                </div>
             </div>
                 
         )
