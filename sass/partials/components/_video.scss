@@ -5,6 +5,10 @@
     .video__thumbnail {
         @include position(absolute, 0);
         width: 95%;
+        @include breakpoint($screen-sm) {
+            width: 52%;
+            margin: 0 auto;
+        }
     }
     .video__title {
         position: absolute;
@@ -12,6 +16,12 @@
         z-index: 2;
         background: $beige;
         width: 86%;
+        @include breakpoint($screen-sm) {
+            width: 48%;
+            left: 50%;
+            transform: translateX(-50%);
+
+        }
         
     }
 }

@@ -1,10 +1,10 @@
 .searchbox {
    margin-top: 12px;
+   height: 100px;
     .searchbox__textbox {
         background: $beige;
         width: 100%;
         border: 0;
-        height: 24px;
     }
 
     .searchbox__textbox:focus {

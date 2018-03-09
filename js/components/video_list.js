@@ -13,7 +13,7 @@ export default class VideoList extends Component {
         let videoRow = [];
         _.each(videos, function(video, key){
             let videoItem = <div className="col-3"><Video video={video} /></div>;
-            if (key % rowSize == 0) {
+            if ((key + 1) % rowSize == 0) {
                 videoRow.push(videoItem);
                 rows.push(videoRow);
                 videoRow = [];

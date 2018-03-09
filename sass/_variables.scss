@@ -1,7 +1,26 @@
-$screen-sm: 500px;
+$screen-sm: 568px;
 $screen-md: 768px;
 $screen-lg: 992px;
 $screen-xl: 1200px;
-
 $beige: #f7f3f0;
 $dark-blue: #232F3E;
+$mobile-portrait-col: (
+    columns: 12,
+    gutter: 20px,
+    media: 375px
+);
+$mobile-landscape-col: (
+    columns: 12,
+    gutter: 20px,
+    media: 568px,
+);;
+$tablet-portrait-col: (
+    columns: 12,
+    gutter: 0,
+    media: 768px
+);
+$tablet-landscape-col: (
+    columns: 12,
+    gutter: 0,
+    media: 1024px
+);
