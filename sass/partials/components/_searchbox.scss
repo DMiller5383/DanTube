@@ -1,10 +1,14 @@
 .searchbox {
    margin-top: 12px;
-   height: 100px;
+   height: 50px;
     .searchbox__textbox {
         background: $beige;
         width: 100%;
         border: 0;
+        caret-color: transparent;
+        @include breakpoint($screen-xl) {
+            width: 85%;
+        }
     }
 
     .searchbox__textbox:focus {
@@ -17,6 +21,13 @@
         animation-name: slidein;
         animation-duration: 1s;
         width: 100%;
+        visibility: visible;
+    }
+}
+
+.searchbox--hidden {
+    .searchbox__textbox {
+        visibility: hidden;
     }
 }
 
@@ -25,5 +36,6 @@
         animation-name: slideout;
         animation-duration: 1s;
         width: 0%;
+        opacity: 0;
     }
 }

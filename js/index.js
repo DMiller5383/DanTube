@@ -34,3 +34,6 @@ ReactDOM.render(
     </Provider>,
     document.getElementById('app')
 );
+document.addEventListener('click', function(e){
+    console.log('asdf');
+})

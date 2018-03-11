@@ -12,7 +12,7 @@ export default class VideoList extends Component {
         let rows = [];
         let videoRow = [];
         _.each(videos, function(video, key){
-            let videoItem = <div className="col-3"><Video video={video} /></div>;
+            let videoItem = <div className="col-3" key={key}><Video video={video} /></div>;
             if ((key + 1) % rowSize == 0) {
                 videoRow.push(videoItem);
                 rows.push(videoRow);
@@ -30,13 +30,15 @@ export default class VideoList extends Component {
     render() {
         if (this.props.videos.isFetching == true) {
             return(
-                <h1>Loading...</h1>
+                <div className="col-12">
+                    <h1>Loading...</h1>
+                </div>
             )
         }
         let videoRowItems = this.getVideoRowItems(this.props.videos.videoList, 3);
         let videoRows = videoRowItems.map((videoRowItem, index)=>{
             return (
-                <div className="row">
+                <div className="video-row" key={index}>
                     {videoRowItem}
                 </div>
             )

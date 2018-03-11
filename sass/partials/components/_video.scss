@@ -2,12 +2,17 @@
     width: 100%;
     position: relative;
     height: 180px;
+    @include breakpoint($screen-xl) {
+        height: 308px;
+    }
     .video__thumbnail {
         @include position(absolute, 0);
         width: 95%;
         @include breakpoint($screen-sm) {
             width: 52%;
-            margin: 0 auto;
+        }
+        @include breakpoint($screen-md) {
+            width: 100%;
         }
     }
     .video__title {
@@ -18,9 +23,9 @@
         width: 86%;
         @include breakpoint($screen-sm) {
             width: 48%;
-            left: 50%;
-            transform: translateX(-50%);
-
+        }
+        @include breakpoint($screen-md) {
+            width: 90%;
         }
         
     }
