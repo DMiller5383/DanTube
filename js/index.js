@@ -11,6 +11,7 @@ import { Provider } from 'react-redux';
 import reducers from './reducers';
 import {logger, ytMiddleware} from './middleware';
 import {isMobile} from 'react-device-detect';
+import { BrowserRouter as Router, Route, Link } from "react-router";
 
 let categories = ['funny', 'movies', 'news'];
 const createStoreWithMiddleware = applyMiddleware(promise, ytMiddleware)(createStore);
@@ -34,6 +35,3 @@ ReactDOM.render(
     </Provider>,
     document.getElementById('app')
 );
-document.addEventListener('click', function(e){
-    console.log('asdf');
-})
