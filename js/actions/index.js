@@ -4,11 +4,19 @@ export const FETCH_VIDEOS = 'fetch_videos';
 export const RECEIVE_VIDEOS = 'receive_videos';
 export const UPDATE_CURRENT_SEARCH = 'update_current_search';
 export const SHOW_OR_HIDE_SEARCHBOX = 'show_or_hide_searchbox';
+export const UPDATE_FETCH_VIDEOS = 'update_fetch_videos';
 
 export function fetchVideos(searchTerm='') {
     return {
         type: FETCH_VIDEOS,
         payload: searchTerm
+    }
+}
+
+export function updateFetchVideos(bookmark) {
+    return {
+        type: FETCH_VIDEOS,
+        payload: bookmark
     }
 }
 

@@ -8,6 +8,14 @@ export default class VideoList extends Component {
         this.props.fetchVideos(this.props.currentSearch);
     }
 
+    componentDidMount() {
+        window.addEventListener('scroll', function(e){
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+                console.log('bottom of page!')
+            } 
+        })
+    }
+
     getVideoRowItems(videos, rowSize) {
         let rows = [];
         let videoRow = [];
@@ -38,7 +46,7 @@ export default class VideoList extends Component {
         let videoRowItems = this.getVideoRowItems(this.props.videos.videoList, 3);
         let videoRows = videoRowItems.map((videoRowItem, index)=>{
             return (
-                <div className="video-row" key={index}>
+                <div className="video-row" key={index} >
                     {videoRowItem}
                 </div>
             )
