@@ -13,6 +13,7 @@ const ytMiddleware = store => next => action => {
 function getYTVideos(searchParams, store) {
     let youTube = new YouTube(); 
     youTube.setKey('AIzaSyBhiCYZwT2PW7kZ_LUDGv4cyFm4K7zegDI'); 
+    
     youTube.search(searchParams.searchTerm, 10, {pageToken: searchParams.pageToken}, function(error, result){
         if(error) {
             return 'error';
@@ -37,6 +38,9 @@ function getYTSearchParams(action, store) {
         params.pageToken = '';
         params.videoList = [];
     } else if(action.type == UPDATE_FETCH_VIDEOS) {
+        if(store.getState().videos.isFetching == true) {
+            return;
+        }
         params.searchTerm = store.getState().currentSearch;
         params.pageToken = store.getState().videos.pageToken;
         params.videoList = store.getState().videos.videoList;

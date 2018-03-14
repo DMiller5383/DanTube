@@ -37,13 +37,11 @@ export default class VideoList extends Component {
     }
 
     render() {
-        if (this.props.videos.isFetching == true) {
-            return(
-                <div className="col-12">
-                    <h1>Loading...</h1>
-                </div>
-            )
-        }
+        let loadingIndicator = <div className="col-12"><p>Loading...</p></div>;
+        if (this.props.videos.isFetching != true) {
+            loadingIndicator = <div className="col-12"></div>;
+        }         
+        
         let videoRowItems = this.getVideoRowItems(this.props.videos.videoList, 3);
         let videoRows = videoRowItems.map((videoRowItem, index)=>{
             return (
@@ -54,7 +52,10 @@ export default class VideoList extends Component {
         });
 
         return (
-            <div>{videoRows}</div>
+            <div>
+                {videoRows}
+                {loadingIndicator}
+            </div>
         )
     }
 }
