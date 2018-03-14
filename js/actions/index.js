@@ -13,10 +13,10 @@ export function fetchVideos(searchTerm='') {
     }
 }
 
-export function updateFetchVideos(bookmark) {
+export function updateFetchVideos(searchTerm) {
     return {
-        type: FETCH_VIDEOS,
-        payload: bookmark
+        type: UPDATE_FETCH_VIDEOS,
+        payload: searchTerm
     }
 }
 

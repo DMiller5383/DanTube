@@ -9,11 +9,12 @@ export default class VideoList extends Component {
     }
 
     componentDidMount() {
+        let self = this;
         window.addEventListener('scroll', function(e){
             if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-                console.log('bottom of page!')
+                self.props.updateFetchVideos(self.props.currentSearch);
             } 
-        })
+        });
     }
 
     getVideoRowItems(videos, rowSize) {

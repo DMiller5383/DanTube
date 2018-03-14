@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchVideos, receiveVideos } from '../actions';
+import { fetchVideos, receiveVideos, updateFetchVideos } from '../actions';
 import VideoList from '../components/video_list';
 
 function mapStateToProps(state) {
@@ -10,4 +10,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, {fetchVideos, receiveVideos})(VideoList)
+export default connect(mapStateToProps, {fetchVideos, updateFetchVideos})(VideoList)

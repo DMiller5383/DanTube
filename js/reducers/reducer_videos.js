@@ -8,7 +8,8 @@ export default function(state={}, action) {
             });
         case RECEIVE_VIDEOS:
             return Object.assign({}, state, {
-                videoList: action.payload,
+                videoList: action.payload.videoList,
+                pageToken: action.payload.pageToken,
                 isFetching: false
             });
         default:
