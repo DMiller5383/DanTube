@@ -20,11 +20,15 @@ export default class VideoSearchBox extends Component {
     }
 
     showOrHideSearchBox() {
+        let self = this;
         if(this.props.searchbox.isShowing == true) {
             this.props.showOrHideSearchBox(false);
         } else {
             this.props.showOrHideSearchBox(true);
-            this.searchbox.focus();
+            //searchbox can't focus when opened without this method.
+            setTimeout(function() {
+                self.searchbox.focus();
+            }, 0);
         }
     }
 
@@ -40,7 +44,7 @@ export default class VideoSearchBox extends Component {
         return(
                 <div className={textBoxClass}>
                     <div className="col-11">
-                        <input key="1" type="text" className='searchbox__textbox' ref={(searchbox)=>{this.searchbox = searchbox}}  onKeyUp={this.setSearchText.bind(this)}/>
+                        <input key="1" type="text" className='searchbox__textbox' ref={(searchbox)=>{this.searchbox = searchbox}}  onKeyUp={this.setSearchText.bind(this)} autoFocus="autofocus" />
                     </div>
                     <div className="col-1">
                         <ShowSearch className="seachbox__mobile-show" onClick={this.showOrHideSearchBox.bind(this)} searchIsShowing={this.props.searchbox.isShowing}/>
@@ -54,7 +58,7 @@ export default class VideoSearchBox extends Component {
         return(
             <div className="col-12">
                 <div className="searchbox">
-                    <input type="text" className="searchbox__textbox" onKeyUp={this.setSearchText.bind(this)}/>
+                    <input type="text" className="searchbox__textbox" onKeyUp={this.setSearchText.bind(this)} />
                     <button className="searchbox__btn" onClick={this.onClick.bind(this)}>Search</button>
                 </div>
             </div>
