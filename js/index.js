@@ -16,7 +16,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router";
 let categories = ['funny', 'movies', 'news'];
 const createStoreWithMiddleware = applyMiddleware(promise, ytMiddleware)(createStore);
 let videos = [];
-const initialState = { videos: {videoList: [], isFetching: true, pageToken: ''}, currentSearch: '', searchbox: {isShowing: false} };
+const initialState = { videos: {videoList: [], isFetching: true, pageToken: ''}, currentSearch: '', searchbox: {isShowing: false}, activeVideo: '' };
 
 ReactDOM.render(
     <Provider store={createStoreWithMiddleware(reducers, initialState)}>

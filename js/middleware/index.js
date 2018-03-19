@@ -6,7 +6,9 @@ import {receiveVideos} from '../actions';
 
 const ytMiddleware = store => next => action => {
     let searchParams = getYTSearchParams(action, store);
-    getYTVideos(searchParams, store );    
+    if(Object.keys(searchParams).length !== 0 && searchParams.constructor === Object) {
+        getYTVideos(searchParams, store );     
+    }
     return next(action);
 }
 
@@ -44,6 +46,8 @@ function getYTSearchParams(action, store) {
         params.searchTerm = store.getState().currentSearch;
         params.pageToken = store.getState().videos.pageToken;
         params.videoList = store.getState().videos.videoList;
+    } else {
+        params = {};
     }
     return params;
 }
