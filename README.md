@@ -1,6 +1,6 @@
 # Dantube - A youtube knockoff made using ReactJS.
 
-[Temporary URL](/btlquiz.s3-website-us-east-1.amazonaws.com/)
+[Temporary URL](http://dantube.s3-website-us-east-1.amazonaws.com/)
 
 ## Related articles from my blog
 [My React Redux App State Explained](http://danielmiller.blog/my-react-redux-app-state-explained/)
